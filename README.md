@@ -9,7 +9,7 @@ Use `conda` to install (list here: )? in a python3 environment
 You will also need to install `bowtie` for read alignment.
 
 # Align reads to an index of the library
-First, create your reference index.
+First, create your reference index. The oligo file should have 2 columns: `label, oligo sequence`. It is recommended to trim the cloning adapters off the oligo sequence by using the `-e` and `-s` parameters of `makeIndices.py`. Optionally, if your NGS reads do not cover the full length of the domain, it is recommended to further trim so the index is only the part of the domain that will be covered by the read (and no shorter). Being precise with the index trimming helps decrease ambiguous alignments of a read to multiple domains that may have homology in some positions (e.g. in a tiling screen).
 
 `makeIndices.py oligoFile.csv shortScreenName fullName`
 
