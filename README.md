@@ -18,7 +18,7 @@ Use `conda` to install the required packages in a python3 environment:
 
 `(HTrec3)` should appear on the command line
 
-If first time, finish installations into your environment with `pip`:
+If this is the first time using the environment, finish installations into your environment with `pip`:
 
 `pip install pysam HTSeq`
 
