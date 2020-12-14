@@ -3,10 +3,19 @@ Analysis of high-throughput recruitment screens, from FASTQ to element enrichmen
 
 Paper: <https://www.biorxiv.org/content/10.1101/2020.09.09.288324v1> (Tycko, J., ..., Bassik, M.C.#, Bintu, L.#, 2020)
 
-# Activate environment
-Use `conda` to install (list here: )? in a python3 environment
+# Install dependencies
+Install `bowtie` (software for read alignment)
 
-You will also need to install `bowtie` for read alignment.
+# Prepare Python environment
+Use `conda` to install the required packages in a python3 environment:
+`conda create -n HTrec3 python=3.7`
+`conda install -n HTrec3 numpy pandas seaborn Cython`
+
+# Activate environment
+`source activate HTrec3`
+
+If first time, finish installations into your environment with `pip`:
+`pip install pysam HTSeq`
 
 # Align reads to an index of the library
 First, create your reference index. The oligo file should have 2 columns: `label, oligo sequence`. It is recommended to trim the cloning adapters off the oligo sequence by using the `-e` and `-s` parameters of `makeIndices.py`. Optionally, if your NGS reads do not cover the full length of the domain, it is recommended to further trim so the index is only the part of the domain that will be covered by the read (and no shorter). Being precise with the index trimming helps decrease ambiguous alignments of a read to multiple domains that may have homology in some positions (e.g. in a tiling screen). If your reads are too short, there is a greater risk of counting reads from clones with problematic mutations (e.g. a deletion outside the sequenced portion such that the domain is truncated).
