@@ -40,8 +40,10 @@ It is helpful to optimize the parameters on a small FASTQ (e.g. a subsample of 2
 
 If there is an additional FASTQ file for the same sample (e.g. it was re-sequenced at a later date for more depth), you can add it to the counts with `-a PathToFASTQ`.
 
-You can then do this optional step to check the diversity and uniformity of the elements' count distributions. You can list as many count file names as needed.
+# Check the diversity and uniformity of the count distributions
 `plotDist.py OutputName Data/Sample1_Bound_counts.csv Data/Sample1_Unbound_counts.csv... -l Label1 Label2 ...`
+
+You can list as many count file names as needed.
 
 # Compute OFF:ON ratios 
 Compare the read counts between your OFF and ON samples for a given bio-replicate. 
