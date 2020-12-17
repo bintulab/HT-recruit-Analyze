@@ -10,6 +10,7 @@ Install `bowtie` (We use the original Bowtie 1 software for read alignment)
 `git clone https://github.com/bintulab/HT-recruit-Analyze`
 
 Navigate into the directory. The pipeline depends on having this directory structure.
+
 `cd HT-recruit-Analyze`
 
 # Prepare Python environment
