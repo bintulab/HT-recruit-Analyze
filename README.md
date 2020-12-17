@@ -4,7 +4,13 @@ Analysis of high-throughput recruitment screens, from FASTQ to element enrichmen
 Paper: <https://www.biorxiv.org/content/10.1101/2020.09.09.288324v1> (Tycko, J., ..., Bassik, M.C.#, Bintu, L.#, 2020)
 
 # Install dependencies
-Install `bowtie` (software for read alignment)
+Install `bowtie` (We use the original Bowtie 1 software for read alignment)
+
+# Clone the github repo
+`git clone https://github.com/bintulab/HT-recruit-Analyze`
+
+Navigate into the directory. The pipeline depends on having this directory structure.
+`cd HT-recruit-Analyze`
 
 # Prepare Python environment
 Use `conda` to install the required packages in a python3 environment:
@@ -19,7 +25,7 @@ Use `conda` to install the required packages in a python3 environment:
 `(HTrec3)` should appear on the command line
 
 If this is the first time using the environment, finish installations into your environment with `pip`:
-
+`conda install pip`
 `pip install pysam HTSeq`
 
 # Create an index of the library
@@ -32,7 +38,9 @@ Optionally, if your NGS reads do not cover the full length of the domain, it is 
 `makeIndices.py -o -t oligoFile.csv shortLibraryName fullName`
 
 # Align reads to an index of the library
-Then, align your reads to that index. Use the trim option `-t` to remove the constant region in the beginning of the sequencing read, and the length option `-l` to determine the remaining length of read that will be used for the alignment (e.g. removing extraneous sequence from the end of the read if it exceeds the length of the elements). Use `-p` for parallel processing on a desired number of processors.
+Then, align your reads to that index.
+
+Use the trim option `-t` to remove the constant region in the beginning of the sequencing read. Note that `-t` will vary depending on the length of stagger sequence in the primer. Use the length option `-l` to determine the remaining length of read that will be used for the alignment (e.g. removing extraneous sequence from the end of the read if it exceeds the length of the elements). Use `-p` for parallel processing on a desired number of processors.
 
 `makeCounts.py FASTQfile OutputName shortLibraryName -t TrimLength -m NumMismatches -l ReadLength -p Processors`
 
@@ -49,8 +57,6 @@ You can list as many count file names as needed.
 Compare the read counts between your OFF and ON samples for a given bio-replicate. 
 
 `makeRhos.py Data/Sample1_Bound_counts.csv Data/Sample1_Unbound_counts.csv SampleRep1 -n 'Random' -b 'none'`
-
-
 
 # Combine bio-replicates
 Finally, combine the values from bio-replicates.
