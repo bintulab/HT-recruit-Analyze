@@ -1,7 +1,7 @@
 # HT-recruit Analyze
 Analysis of high-throughput recruitment screens, from FASTQ to element enrichments.
 
-Paper: <https://www.biorxiv.org/content/10.1101/2020.09.09.288324v1> (Tycko, J., ..., Bassik, M.C.#, Bintu, L.#, 2020)
+Paper: <https://www.cell.com/cell/fulltext/S0092-8674(20)31541-5> (Tycko, J., ..., Bassik, M.C.#, Bintu, L.#, 2020)
 
 # Install dependencies
 Install `bowtie` (We use the original Bowtie 1 software for read alignment)
