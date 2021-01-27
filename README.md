@@ -55,7 +55,7 @@ If there is an additional FASTQ file for the same sample (e.g. it was re-sequenc
 You can list as many count file names as needed.
 
 # Compute OFF:ON ratios 
-Compare the read counts between your OFF and ON samples for a given bio-replicate. 
+Compare the read counts between your OFF and ON samples for a given bio-replicate. If, for example, you want to use random sequence controls as the negative control set and shift the ratios such that the median of negative controls is 0, then you can use `-n 'Random'`. In this case, the first word in the `_` delimited label of your random sequence controls, when making the index, must be `'Random'`.
 
 `makeRhos.py Data/Sample1_Bound_counts.csv Data/Sample1_Unbound_counts.csv SampleRep1 -n 'Random' -b 'none'`
 
