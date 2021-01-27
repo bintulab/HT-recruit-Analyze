@@ -205,7 +205,7 @@ print('Calculating enrichment values')
 
 # Retrieves enrichment values from auxilary function
 element_rhos, gene_rhos, neg_rhos, tar_rhos, gene_ref = enrich_all(ON,
-		OFF, args.neg_name, args.split_mark, args.K, time_zero, args.back, args.bound_on, args.unbound_on)
+		OFF, args.neg_name, args.split_mark, args.K, time_zero, args.back)
 
 print('Number of negative controls = ' + str(len(neg_rhos)))
 
@@ -224,7 +224,7 @@ with open(file_out + '_rhos.csv', 'w') as out_open:
     for element, vals in element_rhos.items():
 
         # Writes to file
-        out_csv.writerow([args.add + element, vals[0], vals[1], vals[2], vals[3], vals[4]])
+        out_csv.writerow([args.add + element, vals[0], vals[1], vals[2]])
 
 
 ###############################################################################

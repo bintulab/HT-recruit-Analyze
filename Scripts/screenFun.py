@@ -258,7 +258,7 @@ def filterCounts(unt_file, trt_file, thresh, zero_files, exclude=False):
 
 def enrich(count1, sum1, zero1, sum_zero1,
            count2, sum2, zero2, sum_zero2,
-           shift, norm, bkgrd):
+           shift, norm):
     '''
     Function calculates enrichment values
     '''
@@ -275,7 +275,7 @@ def enrich(count1, sum1, zero1, sum_zero1,
     # Normalizes log ratio by shifting around 'zero' and stretching
     # appropriately
     shift_enrich = log_enrich - shift
-    norm_enrich = shift_enrich / nor
+    norm_enrich = shift_enrich / norm
 
     return [norm_enrich, count1, count2]
 
@@ -316,12 +316,6 @@ def enrich_all(untreated, treated, neg_name, split_mark, K, time_zero, back):
                                     zero_unt[entry], total_zero_unt,
                                     0, 1, 0)[0])
 
-            neg_Poff.append(enrich(treated[entry], total_trt,
-                                    zero_trt[entry], total_zero_trt,
-                                    untreated[entry], total_unt,
-                                    zero_unt[entry], total_zero_unt,
-                                    0, 1, 0)[3])
-
         else:
             tar_raw.append(enrich(treated[entry], total_trt,
                                     zero_trt[entry], total_zero_trt,
@@ -345,8 +339,6 @@ def enrich_all(untreated, treated, neg_name, split_mark, K, time_zero, back):
     else:
         sys.exit('Unrecognized option for background choice: ' + back)
 
-    # Compute background for percent OFF
-    bkgrd = np.median(neg_Poff)
 
     entry_rhos = {}
 
@@ -358,7 +350,7 @@ def enrich_all(untreated, treated, neg_name, split_mark, K, time_zero, back):
                                     zero_trt[entry], total_zero_trt,
                                     untreated[entry], total_unt,
                                     zero_unt[entry], total_zero_unt,
-                                    shift, K, bkgrd)
+                                    shift, K)
 
     # Gathers rho values for each gene and separates out negative controls
     gene_rhos = defaultdict(list)
