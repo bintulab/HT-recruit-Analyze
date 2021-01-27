@@ -88,8 +88,8 @@ except:
 ###############################################################################
 # Load and combine rhos from individual replicates
 
-df1 = pd.read_csv(args.R1_file, names = ['label', 'R1', 'countsOFF_R1', 'countsON_R1', 'Poff R1', 'Poff_corrected R1'], header = None)
-df2 = pd.read_csv(args.R2_file, names = ['label', 'R2', 'countsOFF_R2', 'countsON_R2', 'Poff R2', 'Poff_corrected R2'], header = None)
+df1 = pd.read_csv(args.R1_file, names = ['label', 'R1', 'countsOFF_R1', 'countsON_R1'], header = None)
+df2 = pd.read_csv(args.R2_file, names = ['label', 'R2', 'countsOFF_R2', 'countsON_R2'], header = None)
 
 df = pd.merge(df1, df2, how = 'outer', on = 'label')
 
