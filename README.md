@@ -50,7 +50,7 @@ It is helpful to optimize the parameters on a small FASTQ (e.g. a subsample of 2
 If there is an additional FASTQ file for the same sample (e.g. it was re-sequenced at a later date for more depth), you can add it to the counts with `-a PathToFASTQ`.
 
 # Check the diversity and uniformity of the count distributions
-`plotDist.py OutputName Data/Sample1_Bound_counts.csv Data/Sample1_Unbound_counts.csv... -l Label1 Label2 ...`
+`plotDist.py OutputName Data/Sample1_Bound Data/Sample1_Unbound... -l Label1 Label2 ...`
 
 You can list as many count file names as needed.
 
